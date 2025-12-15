@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AttendX Dashboard</title>
+    <!-- Auto-refresh every 5 seconds -->
+    <meta http-equiv="refresh" content="5">
+    <style>
+        body {
+            background: #121212;
+            color: #ffffff;
+            font-family: "Segoe UI", Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #00ff88;
+            font-size: 28px;
+            margin-top: 40px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 70%;
+            background: #1e1e1e;
+            box-shadow: 0 0 10px #00ff88;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px;
+            border: 1px solid #333;
+        }
+
+        th {
+            background: #00ff88;
+            color: black;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background: #2b2b2b;
+        }
+
+        tr:hover {
+            background: #333;
+        }
+
+        .no-records {
+            margin-top: 50px;
+            font-size: 18px;
+            color: #bbbbbb;
+        }
+
+        .refresh-note {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 10px;
+            font-size: 13px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 AttendX – Smart Attendance Dashboard</h1>
+
+    <div class="container">
+        {% if data %}
+        <table>
+            <tr><th>Name</th><th>Time</th></tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p class="no-records">⚠️ No attendance records found yet!</p>
+        {% endif %}
+        <div class="refresh-note">🔄 Page auto-refreshes every 5 seconds to show latest attendance</div>
+    </div>
+
+    <footer>
+        © 2025 AttendX | AI-Based Smart Attendance System
+    </footer>
+</body>
+</html>
