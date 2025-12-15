@@ -99,5 +99,6 @@ Requires good lighting conditions
 Accuracy depends on image quality
 
 TO RUN:
+
 python gui_attendance.py 
 enter it in the terminal and run
